@@ -1,7 +1,7 @@
 /* global Product, Cart */
-
+console.log("hello world");
 'use strict';
-let itemCounter = 0;
+let itemCount = document.getElementById('itemCount');
 // Set up an empty cart for use on this page.
 const cart = new Cart([]);
 
@@ -12,10 +12,10 @@ function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
   const selectElement = document.getElementById('items');
   for (let i in Product.allProducts) {
-    let option = document.createElement('option')
+    let option = document.createElement('option');
     option.textContent = Product.allProducts[i].name;
-    selectElement.appendChild(option);
     option.value = Product.allProducts[i].name;
+    selectElement.appendChild(option);
   }
 
 }
@@ -39,20 +39,22 @@ function handleSubmit(event) {
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // Done TODO: suss out the item picked from the select list
-  let itemPicked = getElementById('items').value;
-  let quantityPicked = getElementById('quantity').value;
+  let itemPicked = document.getElementById('items').value;
+  let quantityPicked = document.getElementById('quantity').value;
+  console.log(itemPicked, quantityPicked);
   cart.addItem(itemPicked, quantityPicked);
+  console.log(itemPicked, quantityPicked);
   // DONE TODO: get the quantity
   // DONE TODO: using those, add one item to the Cart
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() { 
-  itemCounter += this.quantityPicked;
-  let itemCount = getElementById('itemCount');
-  let itemCount2 = document.createElement('p');
-  itemCount2.textContent =  `You have ${itemCounter} items in your cart`;
-  itemCount.appendChild(itemCount2);
+  // itemCounter += this.quantityPicked;
+  itemCount.textContent = `You have ${cart.items.length} items in your cart.`;
+  // let itemCount2 = document.createElement('p');
+  // itemCount2.textContent =  `You have ${itemCounter} items in your cart`;
+  // itemCount.appendChild(itemCount2);
 
 }
 

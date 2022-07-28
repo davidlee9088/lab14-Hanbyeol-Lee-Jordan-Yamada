@@ -1,22 +1,27 @@
 'use strict';
 
-let itemsId = document.getElementById('items')
-let productArray = Product.allProducts = [];
+// let itemsId = document.getElementById('items')
+
 
 // Cart constructor.
 const Cart = function(items) {
-  Cart
+  this.items = [];
 
   // this.items is an array of CartItem instances.
 };
 
 Cart.prototype.addItem = function(product, quantity) {
-  // TODO: Fill in this instance method to create a new CartItem and add it to this.items
-  let items = new CartItem(product,quantity);
+  // DONE TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  this.items.push(new CartItem(product,quantity));
+
 };
 
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  console.log(Cart.items);
+  const arrayString = JSON.stringify(Cart.items);
+  console.log(arrayString);
+  localStorage.setItem('cart', arrayString);
 };
 
 Cart.prototype.removeItem = function(item) {
@@ -35,6 +40,8 @@ const Product = function(filePath, name) {
   this.name = name;
   Product.allProducts.push(this);
 };
+
+Product.allProducts = [];
 
 function generateCatalog() {
   new Product('assets/bag.jpg', 'Bag');
