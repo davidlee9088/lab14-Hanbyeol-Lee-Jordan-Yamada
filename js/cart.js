@@ -13,6 +13,7 @@ function loadCart() {
 
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
 function renderCart() {
+  showHead();
   loadCart();
   clearCart();
   showCart();
@@ -21,17 +22,41 @@ function renderCart() {
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {}
 
+
+function showHead(){
+  let tHead = document.querySelector('thead');
+  let tRow = document.createElement('trow');
+    tHead.appendChild(tRow);
+    let tData1 = document.createElement('th');
+    tData1.textContent = "Product";
+    tRow.appendChild(tData1);
+    let tData2 = document.createElement('th');
+    tData2.textContent = "Quantity";
+    tRow.appendChild(tData2);
+    let tData3 = document.createElement('th');
+    tData3.textContent = "Delete";
+    tRow.appendChild(tData3);
+}
+
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
 
   // TODO: Find the table body
 let tbody = document.querySelector('tbody');
   // TODO: Iterate over the items in the cart
-  for (let i=0; i< Cart.items.length; i++){
+  for (let i=0; i< cart.length; i++){
     let tRow = document.createElement('trow');
     tbody.appendChild(tRow);
-    let tData = document.createElement('td');
-    tData.textContent = 
+    let tData1 = document.createElement('td');
+    tData1.textContent = "Product";
+    tRow.appendChild(tData1);
+    let tData2 = document.createElement('td');
+    tData2.textContent = "Quantity";
+    tRow.appendChild(tData2);
+    let tData3 = document.createElement('td');
+    tData3.textContent =  "Delete";
+    tRow.appendChild(tData3);
+
   }
   // TODO: Create a TR
   // TODO: Create a TD for the delete link, quantity,  and the item
@@ -49,3 +74,9 @@ function removeItemFromCart(event) {
 
 // This will initialize the page and draw the cart on screen
 renderCart();
+
+
+
+/// Tried to had a table head
+
+showHead();
