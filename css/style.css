@@ -1,7 +1,7 @@
 /* TODO: Make it awesome */
 
 html {
-  background-color: aquamarine;
+  background-color:burlywood;
 }
 
 h1 {
@@ -12,16 +12,16 @@ h1 {
 nav li {
   font-size: x-large;
   display: inline;
-  background-color: azure;
-  color:blueviolet;;
+  background-color: burlywood;
+  color:blue;
 }
 
 nav li:hover {
   background-color: rgb(107, 107, 171);
   color:aliceblue;
 }
-
-tr {
+div ol li {
+  font-size: large;
   
 }
 
